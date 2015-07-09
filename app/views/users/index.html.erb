@@ -1,0 +1,70 @@
+<body  class="body1" >
+
+  <div class="header">
+   <div><h4><%= link_to 'NEW USER', new_user_path, class: ['header_single_element'] %> 
+    <font class="shades">REGISTERED USERS LIST</font></h4></div>
+  </div>
+ 
+ 
+<br><br>
+
+<table align="center" class="table_colour_small_font"  border="1">
+  <tr>
+    <td><h4>Name</h4></td>
+    <td><h4>UID</h4></td>
+    <td><h4>Email</h4></td>
+    <td><h4>Employee ID</h4></td>
+    <td><h4>DOB</h4></td>
+    <td><h4>Gender</h4></td>
+<!--     <td><h4>Time-zone</h4></td> -->
+    <td><h4>DES. ID</h4></td>   
+    <td><h4>DOJ</h4></td>
+<!--     <td><h4>Education</h4></td>
+    <td><h4>Commands</h4></td> -->
+    <td><h4>Lock</h4></td>
+    <td><h4>Active</h4></td>
+    <td><h4>Deactive</h4></td>
+   <!--  <td><h4>Work phone</h4></td> -->
+
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name + " " + user.middle_name + " " + user.last_name %></td>
+      <td><%= user.user_ID %></td>
+      <td><%= user.email %></td>
+      <td><%= user.emloyee_ID %></td>
+      <td><%= user.dob %></td>
+      <td><%= user.gender %></td>
+  <!--     <td><%= user.time_zone %></td> -->
+      <td><%= user.desgnation_id %></td>
+      <td><%= user.doj %></td>  
+    <!--   <td><%=  user.lock  %></td>  
+      <td><%=  user.active  %></td>  -->
+
+         <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>  
+      <td><%= if(user.active=="1") then 'True' ; else  'False'; end %></td> 
+      <td><%= user.deactive_date %></td> 
+      <td><%= link_to 'EDIT', edit_user_path(user), class: ['v_e_link'] %> </td>
+      <td><%= link_to 'DESTROY', user_path(user),  class: ['destroy_link'], 
+              method: :delete,
+              data: { confirm: 'Are you sure to delete this entry?' } %> </td>
+      <td><%= link_to 'VIEW', user_path(user), class: ['v_e_link'] %> </td>
+  
+
+    </tr>
+
+       
+
+  <% end %>
+</table>
+
+
+<footer>
+<font color="white" align="right">
+ <b><i> <p >Created by: EJ</p>
+</footer>
+
+
+
+<p></p>

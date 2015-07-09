@@ -1,0 +1,137 @@
+.form_element {
+   font-family: ‘Arial', Gadget, sans-serif;
+   color: #333333;
+   font-size: 100%;
+}
+
+
+.validation_errror {
+   font-family: ‘Arial', Gadget, sans-serif;
+   color: #0000ff;
+   font-size: 100%;
+}
+
+
+
+.submit_button {
+       
+        width: 100px;  
+        height: 30px;
+        text-align: center;
+        color: #FFF;
+        background: #00838f;   
+        text-decoration: none;
+}
+
+
+
+
+
+
+.body1  {
+  background-image: url('/assets/bg.jpg');
+  background-size:cover
+}
+
+
+
+
+
+.header {
+position: relative;
+    max-width: 500px;
+    max-height: 500px;
+    margin: 10px;
+    border: 1px solid #fff;
+    background-color: #00838f;
+    box-shadow: 0px 2px 7px #292929;
+    -moz-box-shadow: 0px 2px 7px #292929;
+    -webkit-box-shadow: 0px 2px 7px #292929;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
+.header_single_element{
+
+    text-decoration: none;
+    margin: 10px;
+    color: #ffffff ; 
+    background-color: #ffffffff ; 
+    
+
+	
+}
+
+
+
+                      
+
+
+
+/* Rounded Corner */
+.textbox5 {
+    border:2px solid #456879;
+   /* border-radius:10px;*/
+  
+   }
+
+
+   .textbox5_mandatory {
+    border:2px solid #ff0000;
+  /*  border-radius:10px;*/
+    /*height:22px;*/
+   }
+
+
+
+
+.destroy_link{
+
+    text-decoration: none;
+    margin: 10px;
+    color: #ff0000 ; 
+    background-color: #ffffffff ; 
+    
+
+    
+}
+
+
+.v_e_link{
+
+    text-decoration: none;
+    margin: 10px;
+    color: #0066a5 ; 
+    background-color: #ffffffff ; 
+}
+
+
+
+.table_colour_small_font {
+   font-size: 88%;
+   text-align: center;
+    border: 1px solid #fff;
+    background-color: #80deea;
+    box-shadow: 0px 2px 7px #292929;
+    -moz-box-shadow: 0px 2px 7px #292929;
+    -webkit-box-shadow: 0px 2px 7px #292929;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.table_colour {
+   text-align: center;
+    border: 1px solid #fff;
+    background-color: #80deea;
+    box-shadow: 0px 2px 7px #292929;
+    -moz-box-shadow: 0px 2px 7px #292929;
+    -webkit-box-shadow: 0px 2px 7px #292929;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
