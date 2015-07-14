@@ -7,7 +7,7 @@
   </div>
 
 
-<body  class="body1" >
+<body  class="teal" >
 
 
 <!--<%= pluralize(@user.errors.count, "Error") %>
@@ -117,7 +117,7 @@
  </tr>
  <tr >
         <td><b><font class="form_element">Designation</font></b></td>
-        <td width="57%"><%= f.select(:desgnation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
+        <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
         
         <td ><b><font class="form_element">DOJ</font></b></td>
         <td ><%= f.date_field :doj, class: ['textbox5_mandatory'] ,:value => @user.doj %></td>

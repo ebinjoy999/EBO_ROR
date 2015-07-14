@@ -1,37 +1,24 @@
 <!--<%= stylesheet_link_tag "users.scss" %>-->
-
-
   <div class="header">
   <div><h4>
-    <%= link_to 'LIST USERS', users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
-
-    <font class="shades">USER REGISTRATION FORM</font>
+    <%= link_to 'LIST USERS', admin_users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
+    <font class="shades">EDIT <%= @user.first_name%>'s INFO</font>
    </h4></div>
   </div>
 
-<body  class="teal" >
-
-<!--<%= image_tag("bg.jpg", :alt => "rss feed") %>-->
 
 
-
-
-<!--            is present.   <br>
-
-<%=  @user.errors.each do |a,b| print a end%>
-
-<% @user.errors.each do |attribute,message| %>
- <%=attribute%>  <%=message%> 
-  <%=p ', '%> 
-
-
-<%end %> -->
-
+<!--<%= pluralize(@user.errors.count, "Error") %>
+            is present.   <br>
+<% @user.errors.full_messages.each do |message| %>
+ <%= message + ", " %>
+<%end%><br>    -->
 
 
 
 <br>
-<%= form_for @user  do |f| %>
+<%= form_for [:admin, @user] do |f| %>
+
 <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
    <!--  <tr  align="left">
        <th align="center"  rowspan="" colspan="6"><b>User Registration Form.</b></th>
@@ -106,7 +93,7 @@
 
     <tr>
        <td><b><font class="form_element">DOB</font></b></td>
-      <td > <%= f.date_field :dob, class: ['textbox5_mandatory']  %></td>
+      <td > <%= f.date_field :dob, class: ['textbox5_mandatory'] ,:value => @user.dob %></td>
 
         <td ><b><font class="form_element">Sex</font></b></td>
         <td > <%= f.select(:gender, options_for_select([['Male'], ['Female']])) %></td>
@@ -114,7 +101,7 @@
  
  <td ><b><font class="form_element">Time zone</font></b></td>
  <td ><%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
- </td>										
+ </td>                                      
 </tr>
 
 
@@ -131,7 +118,7 @@
         <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
         
         <td ><b><font class="form_element">DOJ</font></b></td>
-        <td ><%= f.date_field :doj, class: ['textbox5_mandatory']  %></td>
+        <td ><%= f.date_field :doj, class: ['textbox5_mandatory'] ,:value => @user.doj %></td>
         
         <td><b><font class="form_element">Education</font></b></td>
         <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
@@ -162,7 +149,7 @@
    <label class="i-checks"> <%= f.check_box :active%> <i></i><font class="form_element"><b> Is Active </b></font></label>
    </td>
 <td  ><b><font class="form_element">Deactivated on</font></b></td>
-   <td ><%= f.date_field :deactive_date, class: ['textbox5']  %></td>
+   <td ><%= f.date_field :deactive_date, class: ['textbox5'] ,:value => @user.deactive_date %></td>
  </tr>
 
 
@@ -179,7 +166,7 @@
  <tr >
         <td><b><font class="form_element">Reason for deactivation</font></b></td>
         <td width="57%">
-<%= f.select(:deactive_reason, options_for_select([['No longer an employee with us'], ['Long medical leave'], ['Absconding']]))  %></td>
+<%= f.select(:deactive_reason, options_for_select([['No longer an employee with us'], ['Long medical leave'], ['Absconding']])) %></td>
         
    
         <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
@@ -200,14 +187,4 @@
     </tr>
  
 </table>
-
-
-
-<footer>
-<font color="white" align="right">
- <b><i> <p >Created by: @@@@@@ </p>
-</footer>
-
-
-
 <% end %>

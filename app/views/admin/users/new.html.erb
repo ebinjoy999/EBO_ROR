@@ -1,9 +1,10 @@
+
 <!--<%= stylesheet_link_tag "users.scss" %>-->
 
 
   <div class="header">
   <div><h4>
-    <%= link_to 'LIST USERS', users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
+    <%= link_to 'LIST USERS', admin_users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
 
     <font class="shades">USER REGISTRATION FORM</font>
    </h4></div>
@@ -16,7 +17,7 @@
 
 
 
-<!--            is present.   <br>
+
 
 <%=  @user.errors.each do |a,b| print a end%>
 
@@ -25,13 +26,13 @@
   <%=p ', '%> 
 
 
-<%end %> -->
+<%end %> 
 
 
 
 
 <br>
-<%= form_for @user  do |f| %>
+<%= form_for [:admin, @user]  do |f| %>
 <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
    <!--  <tr  align="left">
        <th align="center"  rowspan="" colspan="6"><b>User Registration Form.</b></th>
@@ -94,6 +95,10 @@
            
         <td><b><font class="form_element">Employee ID</font></b></td>
         <td ><%= f.text_field :emloyee_ID, class: ['textbox5_mandatory']  %></td>
+
+        <td><b><font class="form_element">Role</font></b></td>
+        <td width="57%"><%= f.select(:role_id, options_for_select([['Adminstrator',1], ['User',2]],)) %></td>
+        
     </tr>
 
 
@@ -195,8 +200,7 @@
         <td colspan="6">
         <p align="center">
         <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="reset" value="  Reset All   " name="B5" class="submit_button" <%=  @user = nil%>>
-        </td>
+       
     </tr>
  
 </table>
