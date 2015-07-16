@@ -78,7 +78,8 @@
 
  <tr>
   <td><b><font class="form_element">DOB</font></b></td>
-  <td > <%= f.date_field :dob, class: ['textbox5_mandatory']  %></td>
+  <td > <%= f.text_field :dob, class: ['textbox5_mandatory'],:id => 'relative_date_dob'  %>
+  <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_dob")' %></td>
   <td ><b><font class="form_element">Sex</font></b></td>
   <td > <%= f.select(:gender, options_for_select([['Male'], ['Female']])) %></td>
   <td ><b><font class="form_element">Time zone</font></b></td>
@@ -96,7 +97,8 @@
   <td><b><font class="form_element">Designation</font></b></td>
   <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
   <td ><b><font class="form_element">DOJ</font></b></td>
-  <td ><%= f.date_field :doj, class: ['doj textbox5_mandatory']  %></td>
+  <td ><%= f.text_field :doj, class: ['doj textbox5_mandatory'],:id => 'relative_date_doj'  %>
+  <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_doj")' %></td>
   <td><b><font class="form_element">Education</font></b></td>
   <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
  </tr>

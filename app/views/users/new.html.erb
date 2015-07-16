@@ -16,20 +16,6 @@
 
 
 
-<!--            is present.   <br>
-
-<%=  @user.errors.each do |a,b| print a end%>
-
-<% @user.errors.each do |attribute,message| %>
- <%=attribute%>  <%=message%> 
-  <%=p ', '%> 
-
-
-<%end %> -->
-
-
-
-
 <br>
 <%= form_for @user  do |f| %>
 <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
@@ -106,7 +92,8 @@
 
     <tr>
        <td><b><font class="form_element">DOB</font></b></td>
-      <td > <%= f.date_field :dob, class: ['textbox5_mandatory']  %></td>
+      <td > <%= f.text_field :dob, class: ['textbox5_mandatory'], :id => 'relative_date_dob'  %>
+      <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_dob")' %></td>
 
         <td ><b><font class="form_element">Sex</font></b></td>
         <td > <%= f.select(:gender, options_for_select([['Male'], ['Female']])) %></td>
@@ -131,7 +118,8 @@
         <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
         
         <td ><b><font class="form_element">DOJ</font></b></td>
-        <td ><%= f.date_field :doj, class: ['textbox5_mandatory']  %></td>
+        <td ><%= f.text_field :doj, class: ['textbox5_mandatory'], :id => 'relative_date_doj'  %>
+        <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_doj")' %></td>
         
         <td><b><font class="form_element">Education</font></b></td>
         <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>

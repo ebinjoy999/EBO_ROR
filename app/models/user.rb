@@ -21,7 +21,9 @@ class User < ActiveRecord::Base
 
    def calculate_total_experience
     if(previous_experience!=nil)
-    ((Date.today - Date.parse(doj)).to_f/365 + previous_experience).round(2)
+      #hh = Date.new(doj)
+      gg = Date.strptime(doj, '%m-%d-%Y').strftime("%Y/%m/%d") 
+    ((Date.today - Date.parse(gg)).to_f/365 + previous_experience).round(2)
     end
     end
 
