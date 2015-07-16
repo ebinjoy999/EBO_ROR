@@ -1,8 +1,12 @@
+.hide_when_not_locked{
+  display: none;
+}
+
 .form_element {
-   font-family: ‘Arial', Gadget, sans-serif;
+   font-family: 'Arial', Gadget, sans-serif;
    color: #333333;
    font-size: 100%;
-}
+} 
 
 .left_div_user_home {
 position: absolute;
@@ -19,17 +23,11 @@ position: absolute;
     -webkit-border-radius: 10px;
 }
 
-
-
-
 .validation_errror {
-   font-family: ‘Arial', Gadget, sans-serif;
+   font-family: 'Arial', Gadget, sans-serif;
    color: #0000ff;
    font-size: 100%;
 }
-
-
-
 
 .custom_dropdown {
  -webkit-appearance: none;  /*REMOVES DEFAULT CHROME & SAFARI STYLE*/
@@ -59,17 +57,10 @@ position: absolute;
 }
 
 
-
-
-
-
 .body1  {
   background-image: url('/assets/bg.jpg');
   background-size:cover
 }
-
-
-
 
 
 .header {
@@ -94,9 +85,6 @@ position: relative;
     margin: 10px;
     color: #ffffff ; 
     background-color: #ffffffff ; 
-    
-
-	
 }
 
 .header_single_content{
@@ -105,14 +93,8 @@ position: relative;
     margin: 10px;
     color: #000000 ; 
   /*  background-color: #000000 ; */
-    font-family: ‘Arial', Gadget, sans-serif;
-
-  
+    font-family: 'Arial', Gadget, sans-serif;
 }
-
-
-
-                      
 
 
 
@@ -123,8 +105,11 @@ position: relative;
   
    }
 
-
    .textbox5_mandatory {
+    
+    /*color: #5a5656;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    background-color: #e5e5e5;*/
     border:2px solid #ff0000;
   /*  border-radius:10px;*/
     /*height:22px;*/

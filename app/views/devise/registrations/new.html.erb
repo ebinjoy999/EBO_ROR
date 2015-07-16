@@ -1,13 +1,27 @@
-<body  class="teal" >
- <div class="header"><div><h4>
-  <font class = 'header_single_element' >SIGN UP FORM</font>
-   </h4></div>
-  </div>
-<center>
+<!-- <a href="" onclick='showHide("ffjbnfdj");'>s</a> --> 
+<!-- <body onload='showHide("hide_this_if_active_user");' > -->
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
 
+<div  class="header"><h4>
+<font class = 'header_single_element' >SIGN UP FORM</font>
+</h4></div> 
+
+<center>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     
-
+</br>
 <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2"
  <tr>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
@@ -49,12 +63,18 @@
   <td ><%= f.text_field :email, class: ['textbox5']  %></td>
   <td><b><font class="form_element">Employee ID</font></b></td>
   <td ><%= f.text_field :emloyee_ID, class: ['textbox5_mandatory']  %></td>
+<td><b><font class="form_element">Role</font></b></td>
+        <td width="57%"><%= f.select :role_id, options_for_select([['User',2]] ) %></td>
+
+
+
  </tr>
 
  <tr>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:dob].join(" or ").capitalize %></font></td> 
   </font></td> 
  </tr>
+
 
  <tr>
   <td><b><font class="form_element">DOB</font></b></td>
@@ -80,45 +100,45 @@
   <td><b><font class="form_element">Education</font></b></td>
   <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
  </tr>
- <tr>
-  <td  width="41%"><b><font class="form_element">Comments</font></b></td>
-  <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
-  </tr>
- 
- <tr>
-  <td  valign="top" colspan="2" >
-   <label class="i-checks"> <%= f.check_box :lock %> <i></i> <b><font  class="form_element">Is Locked</font></b></label>
-   </td>
-   <td  valign="top" colspan="2" >
-   <label class="i-checks"> <%= f.check_box :active%> <i></i><font class="form_element"><b> Is Active </b></font></label>
-  </td>
-
-<td><b>
-  <font class="form_element">Deactivated on</font></b></td>
-  <td ><%= f.date_field :deactive_date, class: ['textbox5']  %></td>
- </tr>
 
 
- <tr>
+<tr>
   <td colspan="2"></td>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:work_phone].join(" or ").capitalize %></font></td> 
   </font></td> 
  </tr>
+ <tr>
+  <td  width="41%"><b><font class="form_element">Comments</font></b></td>
+  <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
 
- <tr >
-  <td><b><font class="form_element">Reason for deactivation</font></b></td>
-  <td width="57%">
-   <%= f.select(:deactive_reason, options_for_select([['No longer an employee with us'], ['Long medical leave'], ['Absconding']]))  %></td>
-  <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
+<!--  <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
   <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
  </tr>
+  </tr>
+
+  <tr>
+  <td colspan="2"></td>
+  <td colspan='2'><font class="validation_errror"><%= @user.errors[:work_phone].join(" or ").capitalize %></font></td> 
+  </font></td> 
+ </tr>
+ <tr>
+  <td  width="41%"><b><font class="form_element">Previous Exp (Year)</font></b></td>
+  <td width="57%"><%= f.text_field :comments, class: ['textbox5_mandatory']  %></td>
+
+ <td  width="41%"><b><font class="form_element">Total Exp</font></b></td>
+  <td width="57%"><%= f.text_field :work_phone, :disabled => true , class: ['textbox5']  %></td>
+ </tr> -->
+  </tr>
+
 
 <tr></tr>
  <tr>
   <td colspan="6">
   <p align="center">
   <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <input type="reset" value="  Reset All   " name="B5" class="submit_button" <%=  @user = nil%>>
+<a href=<%=user_session_path%>>
+        <input type="button" value="Cancel" class="submit_button" />
+        </a>
   </td>
  </tr>
  
@@ -126,4 +146,5 @@
 
 <% end %>
 
+<!-- 
 <%= render "devise/shared/links" %>

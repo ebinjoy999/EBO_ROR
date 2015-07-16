@@ -6,16 +6,6 @@
    </h4></div>
   </div>
 
-
-
-<!--<%= pluralize(@user.errors.count, "Error") %>
-            is present.   <br>
-<% @user.errors.full_messages.each do |message| %>
- <%= message + ", " %>
-<%end%><br>    -->
-
-
-
 <br>
 <%= form_for [:admin, @user] do |f| %>
 
@@ -48,22 +38,17 @@
 
 
  <tr>
-   <!--  <td><%= @user.errors[:first_name].join(", ")%></td> -->
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:user_ID].join(" or ").capitalize %></font></td> 
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:password].join(" or ").capitalize %></font></td> 
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:password_confirmation].join(" or ").capitalize %></font></td> 
  </tr>
 
         </tr>
     <tr>
         <td ><b><font class="form_element">User ID</font></b></td>
         <td ><%= f.text_field :user_ID, class: ['textbox5_mandatory']  %></td>
-           
-        <td><b><font class="form_element">Password</font></b></td>
-        <td ><%= f.password_field :password, class: ['textbox5_mandatory']  %></td>
 
-        <td> <b><font class="form_element">Confirm Password</font></b></td>
-        <td ><%= f.password_field :password_confirmation, class: ['textbox5_mandatory']  %></td>
+
+        <td><b><font class="form_element">Role</font></b></td>
+        <td width="57%"><%= f.select(:role_id, options_for_select([['Adminstrator',1], ['User',2]],:selected => @user.role_id)) %></td>
     </tr>
 
 
@@ -72,7 +57,7 @@
  <tr>
    <!--  <td><%= @user.errors[:first_name].join(", ")%></td> -->
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:email].join(" or ").capitalize %></font></td> 
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:password].join(" or ").capitalize %></font></td> 
+  <td colspan='2'><font class="validation_errror"><%= @user.errors[:passwoSrd].join(" or ").capitalize %></font></td> 
   </font></td> 
  </tr>
     <tr>
@@ -115,7 +100,7 @@
  </tr>
  <tr >
         <td><b><font class="form_element">Designation</font></b></td>
-        <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
+        <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],:selected => @user.designation_id)) %></td>
         
         <td ><b><font class="form_element">DOJ</font></b></td>
         <td ><%= f.date_field :doj, class: ['textbox5_mandatory'] ,:value => @user.doj %></td>
@@ -145,11 +130,13 @@
   <td  valign="top" colspan="2" >
    <label class="i-checks"> <%= f.check_box :lock %> <i></i> <b><font  class="form_element">Is Locked</font></b></label>
    </td>
-   <td  valign="top" colspan="2" >
+   <!-- <td  valign="top" colspan="2" >
    <label class="i-checks"> <%= f.check_box :active%> <i></i><font class="form_element"><b> Is Active </b></font></label>
-   </td>
-<td  ><b><font class="form_element">Deactivated on</font></b></td>
-   <td ><%= f.date_field :deactive_date, class: ['textbox5'] ,:value => @user.deactive_date %></td>
+   </td> -->
+<td  class = "hide_when_not_locked"><b><font class="form_element">Deactivated on</font></b></td>
+   <td class = "hide_when_not_locked"><%= f.date_field :deactive_date, class: ['textbox5'] ,:value => @user.deactive_date %></td>
+
+   
  </tr>
 
 
@@ -182,9 +169,12 @@
         <td colspan="6">
         <p align="center">
         <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="reset" value="  Reset All   " name="B5" class="submit_button" <%=  @user = nil%>>
+        <a href=<%=root_path%>>
+        <input type="button" value="Cancel" class="submit_button" />
+        </a>
         </td>
     </tr>
  
 </table>
+
 <% end %>

@@ -19,15 +19,6 @@
 
 
 
-<%=  @user.errors.each do |a,b| print a end%>
-
-<% @user.errors.each do |attribute,message| %>
- <%=attribute%>  <%=message%> 
-  <%=p ', '%> 
-
-
-<%end %> 
-
 
 
 
@@ -163,11 +154,12 @@
   <td  valign="top" colspan="2" >
    <label class="i-checks"> <%= f.check_box :lock %> <i></i> <b><font  class="form_element">Is Locked</font></b></label>
    </td>
-   <td  valign="top" colspan="2" >
+<!--    <td  valign="top" colspan="2" >
    <label class="i-checks"> <%= f.check_box :active%> <i></i><font class="form_element"><b> Is Active </b></font></label>
-   </td>
-<td  ><b><font class="form_element">Deactivated on</font></b></td>
-   <td ><%= f.date_field :deactive_date, class: ['textbox5']  %></td>
+   </td> -->
+   
+<td class="hide_when_not_locked" ><b><font class="form_element">Deactivated on</font></b></td>
+   <td class = "hide_when_not_locked"><%= f.date_field :deactive_date, class: ['textbox5']  %></td>
  </tr>
 
 
@@ -200,7 +192,10 @@
         <td colspan="6">
         <p align="center">
         <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-       
+       <a href=<%=root_path%>>
+        <input type="button" value="Cancel" class="submit_button" />
+        </a>
+        </td>
     </tr>
  
 </table>

@@ -1,35 +1,31 @@
-<body  class="teal" >
- <div class="header"><div><h4>
-  <font class = 'header_single_element' >LOG IN FORM</font>
-   </h4></div>
-  </div>
-<center>
+<div class="header"><h4>
+ <font class = 'header_single_element' >LOG IN FORM</font>
+ </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-
-
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: ['textbox5_mandatory'] %>
-  </div>
-<br/>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off",class: ['textbox5_mandatory'] %>
-  </div>
-</br>
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions" >
-    <%= f.submit "Log in" ,class: ["submit_button"]%>
-  </div>
+ <center>
+  
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  </br><h1><strong>Welcome.</strong> Please login.</h1>
+   <fieldset></br>
+   <div class="field">
+     <%= f.text_field :email, autofocus: true,placeholder: "EmailAddress", class: ['form_fieldset_input'] %>
+     </div>
+    <br/>
+     <div class="field">
+     <%= f.password_field :password, autocomplete: "off",placeholder: "Password", class: ['form_fieldset_input']  %>
+     </div></br>
+     <% if devise_mapping.rememberable? -%>
+      <div class="field">
+       <%= f.check_box :remember_me %>
+       <%= f.label :remember_me %>
+      </div></br>
+     <% end -%>
+     <div class="actions" >
+    <%= f.submit "Log in" ,class: ['form_fieldset_input_submit']%>
+    </div>  
+   </fieldset>
+ <p><span class="btn-round">or</span></p>
 <% end %>
-<br><br>
 <%= render "devise/shared/links" %>
 </center>
 

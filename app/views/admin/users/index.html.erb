@@ -5,13 +5,19 @@
     <font class="header_single_content">    REGISTERED USERS LIST</font></h4></div>
   </div>
  
- <li><%= link_to('Getout from here', destroy_user_session_path, :method => :delete) %> <span></span></a></li> 
+ <h4><b><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete, class: ['v_e_link'] %> <span></span></a></li> 
+  <%= link_to'ADD NEW USER', new_admin_user_path, class: ['v_e_link'], method: :get %> <span></span></a></b></u>
 
-  <li><%= link_to('Add a User', new_admin_user_path) %> <span></span></a></li> 
-<br><br>
 
-Welcome <%= current_user.first_name%>
+<center>
+<p><b><i><font size="6" face="Georgia, Arial" color="teal">Welcome <%= current_user.first_name%> <font color="indigo">(<%= current_user.role.name%>)</font></font></p></i>
+</center>
+</br>
 
+
+<center><font color="red"><%=flash[:error]%></font></center>
+
+</br>
 <table align="center" class="table_colour_small_font"  border="1">
   <tr>
     <td><h4>Name</h4></td>
@@ -49,7 +55,7 @@ Welcome <%= current_user.first_name%>
          <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>  
       <td><%= if(user.active=="1") then 'True' ; else  'False'; end %></td> 
       <td><%= user.deactive_date %></td> 
-      <td><%= link_to 'EDIT', edit_admin_user_path(user), class: ['v_e_link'] %> </td>
+      <td><%= link_to 'EDIT', edit_admin_user_path(user), class: ['v_e_link'], method: :get %> </td>
       <td><%= link_to 'DESTROY', admin_user_path(user),  class: ['destroy_link'], 
               method: :delete,
               data: { confirm: 'Are you sure to delete this entry?' } %> </td>

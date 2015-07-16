@@ -1,3 +1,19 @@
+// function showHide(elementId) {
+//         if (document.getElementById) {
+//             var element = document.getElementById(elementId);
+//             var check_box = document.getElementById("check_box");
+            
+//             if (check_box.checked = true) {
+//             	  element.style.visibility = 'hidden';
+//             }
+
+//              if (check_box.checked = false){
+//             	element.style.visibility = 'visible';
+//             }
+//         }
+//     }
+
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -13,4 +29,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
