@@ -17,7 +17,7 @@ end
 
 
 def update_sanitized_params
-  devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:role_id, :designation_id,:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)}
+  devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:previous_experience,:role_id, :designation_id,:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)}
   devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:designation_id,:first_name, :middle_name, :last_name, :user_ID,:current_password, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)}
 # devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:designation_id,:first_name, :middle_name, :last_name, :user_ID,:current_password, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)}
 end

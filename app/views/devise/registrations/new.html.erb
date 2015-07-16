@@ -1,6 +1,6 @@
 <!-- <a href="" onclick='showHide("ffjbnfdj");'>s</a> --> 
 <!-- <body onload='showHide("hide_this_if_active_user");' > -->
-<head>
+<!-- <head>
   <meta charset="utf-8">
   <title>jQuery UI Datepicker - Default functionality</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
@@ -12,7 +12,7 @@
     $( "#datepicker" ).datepicker();
   });
   </script>
-</head>
+</head> -->
 
 <div  class="header"><h4>
 <font class = 'header_single_element' >SIGN UP FORM</font>
@@ -96,11 +96,10 @@
   <td><b><font class="form_element">Designation</font></b></td>
   <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
   <td ><b><font class="form_element">DOJ</font></b></td>
-  <td ><%= f.date_field :doj, class: ['textbox5_mandatory']  %></td>
+  <td ><%= f.date_field :doj, class: ['doj textbox5_mandatory']  %></td>
   <td><b><font class="form_element">Education</font></b></td>
   <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
  </tr>
-
 
 <tr>
   <td colspan="2"></td>
@@ -111,25 +110,24 @@
   <td  width="41%"><b><font class="form_element">Comments</font></b></td>
   <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
 
-<!--  <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
+ <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
   <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
  </tr>
   </tr>
 
+
+
   <tr>
-  <td colspan="2"></td>
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:work_phone].join(" or ").capitalize %></font></td> 
+  <td colspan='2'><font class="validation_errror"><%= @user.errors[:previous_experience].join(" or ").capitalize %></font></td> 
   </font></td> 
  </tr>
  <tr>
   <td  width="41%"><b><font class="form_element">Previous Exp (Year)</font></b></td>
-  <td width="57%"><%= f.text_field :comments, class: ['textbox5_mandatory']  %></td>
+  <td width="57%"><%= f.text_field :previous_experience, class: ['previous_experience textbox5_mandatory'] %></td>
 
  <td  width="41%"><b><font class="form_element">Total Exp</font></b></td>
-  <td width="57%"><%= f.text_field :work_phone, :disabled => true , class: ['textbox5']  %></td>
- </tr> -->
-  </tr>
-
+  <td><input type="text" class="total_experience"  readonly></td>
+ </tr>
 
 <tr></tr>
  <tr>

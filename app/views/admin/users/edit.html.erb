@@ -103,7 +103,7 @@
         <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],:selected => @user.designation_id)) %></td>
         
         <td ><b><font class="form_element">DOJ</font></b></td>
-        <td ><%= f.date_field :doj, class: ['textbox5_mandatory'] ,:value => @user.doj %></td>
+        <td ><%= f.date_field :doj, class: ['textbox5_mandatory doj'] ,:value => @user.doj %></td>
         
         <td><b><font class="form_element">Education</font></b></td>
         <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
@@ -114,19 +114,23 @@
 
 
 
+  <tr>
+  <td colspan='2'><font class="validation_errror"><%= @user.errors[:previous_experience].join(" or ").capitalize %></font></td> 
+  </font></td> 
+ </tr>
+ <tr>
+  <td  width="41%"><b><font class="form_element">Previous Exp (Year)</font></b></td>
+  <td width="57%"><%= f.text_field :previous_experience, class: ['previous_experience textbox5_mandatory'] %></td>
 
-
-
-
-
-    <tr>
-        <td  width="41%"><b><font class="form_element">Comments</font></b></td>
-         <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
-    </tr>
+ <td  width="41%"><b><font class="form_element">Total Exp</font></b></td>
+  <td><input type="text" class="total_experience"  readonly></td>
+ </tr>
 
 
 
 <tr>
+  <td  width="41%"><b><font class="form_element">Comments</font></b></td>
+         <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
   <td  valign="top" colspan="2" >
    <label class="i-checks"> <%= f.check_box :lock %> <i></i> <b><font  class="form_element">Is Locked</font></b></label>
    </td>

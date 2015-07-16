@@ -24,7 +24,7 @@ class Admin::UsersController < ApplicationController
 
   def show
    @user = User.find(params[:id])
-   # @designation_array = @user.designation.designation_name
+   @tot_exp = @user.calculate_total_experience
   end
 
   def edit
@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
   def update
 	 @user = User.find(params[:id])
    # resource.update_without_password(params)
-	 if @user.update(params.require(:user).permit(:role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone))
+	 if @user.update(params.require(:user).permit(:previous_experience, :role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone))
 		redirect_to root_path
 	 else
      render :edit
@@ -50,8 +50,7 @@ class Admin::UsersController < ApplicationController
 private 
  def user_params
   # @designation_array = Designation.all.map { |d| [d.designation_name, d.id]  }
-  # params.require(:user).permit(@designation_array.find(:designation_id),:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)
-    params.require(:user).permit(:role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)
+  params.require(:user).permit(:previous_experience, :role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)
  end
 end
 

@@ -10,17 +10,20 @@ class User < ActiveRecord::Base
   validates :user_ID, :emloyee_ID, :doj,:dob, presence:true
   validates_uniqueness_of :user_ID
   validates :password, confirmation: true
+  validates :previous_experience, presence: true, format:{with: /\A[-+]?[0-9]*\.?[0-9]+\Z/}
   validates :password, :password_confirmation, presence: true, 
   :if => lambda{ new_record? || !password.nil?}
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   #validates :lname, presence:true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   validates :work_phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Wrong format" }
+
   #validates :uid, presence:true, message: "User id can't be blank"
 
+   def calculate_total_experience
+    if(previous_experience!=nil)
+    ((Date.today - Date.parse(doj)).to_f/365 + previous_experience).round(2)
+    end
+    end
 
-#   before_filter :configure_permitted_parameters
-
-#   protected
-# end
 
 end			

@@ -30,6 +30,7 @@
     <td><h4>DES. ID</h4></td>   
     <td><h4>DOJ</h4></td>
     <td><h4>Role</h4></td>
+    <td><h4>Prev. Exp.</h4></td>
   <!--   <td><h4>Commands</h4></td> -->
     <td><h4>Lock</h4></td>
     <td><h4>Active</h4></td>
@@ -46,13 +47,11 @@
       <td><%= user.emloyee_ID %></td>
       <td><%= user.dob %></td>
       <td><%= user.gender %></td>
-  <!--     <td><%= user.time_zone %></td> -->
       <td><%= @designation_array[user.designation_id-1        ] %></td>
       <td><%= user.doj %></td>  
-  <td><%=  user.role.name  %></td>  
- <!--     <td><%=  user.active  %></td>  -->
-
-         <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>  
+      <td><%=  user.role.name  %></td>  
+      <td><%=  user.previous_experience %></td> 
+      <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>  
       <td><%= if(user.active=="1") then 'True' ; else  'False'; end %></td> 
       <td><%= user.deactive_date %></td> 
       <td><%= link_to 'EDIT', edit_admin_user_path(user), class: ['v_e_link'], method: :get %> </td>
