@@ -19,13 +19,24 @@ class User < ActiveRecord::Base
 
   #validates :uid, presence:true, message: "User id can't be blank"
 
+
    def calculate_total_experience
     if(previous_experience!=nil)
       #hh = Date.new(doj)
       gg = Date.strptime(doj, '%m-%d-%Y').strftime("%Y/%m/%d") 
-    ((Date.today - Date.parse(gg)).to_f/365 + previous_experience).round(2)
+      a = ((Date.today - Date.parse(gg)).to_f/365 )
+      
+      case
+       when a > 0
+        return ((a + previous_experience).round(2))
+       when a < 1
+          return previous_experience 
+      end
     end
-    end
+   end
+
+   
+
 
 
 end			

@@ -1,28 +1,14 @@
-<!-- <a href="" onclick='showHide("ffjbnfdj");'>s</a> --> 
-<!-- <body onload='showHide("hide_this_if_active_user");' > -->
-<!-- <head>
-  <meta charset="utf-8">
-  <title>jQuery UI Datepicker - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
-</head> -->
-
 <div  class="header"><h4>
 <font class = 'header_single_element' >SIGN UP FORM</font>
 </h4></div> 
 
 <center>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    
+
 </br>
+
 <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2"
+
  <tr>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:last_name].join(" or ").capitalize %></font></td> 
@@ -63,12 +49,9 @@
   <td ><%= f.text_field :email, class: ['textbox5']  %></td>
   <td><b><font class="form_element">Employee ID</font></b></td>
   <td ><%= f.text_field :emloyee_ID, class: ['textbox5_mandatory']  %></td>
-<td><b><font class="form_element">Role</font></b></td>
-        <td width="57%"><%= f.select :role_id, options_for_select([['User',2]] ) %></td>
-
-
-
- </tr>
+  <td><b><font class="form_element">Role</font></b></td>
+  <td width="57%"><%= f.select :role_id, options_for_select([['User',2]] ) %></td>
+</tr>
 
  <tr>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:dob].join(" or ").capitalize %></font></td> 
@@ -136,9 +119,9 @@
   <td colspan="6">
   <p align="center">
   <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a href=<%=user_session_path%>>
-        <input type="button" value="Cancel" class="submit_button" />
-        </a>
+  <a href=<%=user_session_path%>>
+  <input type="button" value="Cancel" class="submit_button" />
+  </a>
   </td>
  </tr>
  
