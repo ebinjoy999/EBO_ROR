@@ -4,18 +4,12 @@
   <div class="header">
   <div><h4>
     <%= link_to 'LIST USERS', users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
-
     <font class="shades">USER REGISTRATION FORM</font>
-   </h4></div>
+  </h4></div>
   </div>
 
 <body  class="teal" >
-
 <!--<%= image_tag("bg.jpg", :alt => "rss feed") %>-->
-
-
-
-
 <br>
 <%= form_for @user  do |f| %>
 <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
@@ -24,9 +18,7 @@
         &nbsp; &nbsp; &nbsp; &nbsp;   
     </tr>
  -->
-
-
- <tr>
+  <tr>
  <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
  <td colspan='2'><font class="validation_errror"><%= @user.errors[:last_name].join(" or ").capitalize %></font></td> 
  </tr>
@@ -165,21 +157,16 @@
   </font></td> 
  </tr>
  <tr >
-        <td><b><font class="form_element">Reason for deactivation</font></b></td>
-        <td width="57%">
-<%= f.select(:deactive_reason, options_for_select([['No longer an employee with us'], ['Long medical leave'], ['Absconding']]))  %></td>
-        
-   
-        <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
-       <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
-
- 
-    </tr>
+     <td><b><font class="form_element">Reason for deactivation</font></b></td>
+     <td width="57%">
+     <%= f.select(:deactive_reason, options_for_select([['No longer an employee with us'], ['Long medical leave'], ['Absconding']]))  %></td>
+     <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
+     <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
+ </tr>
 
 <tr></tr>
 
-    
-    <tr>
+  <tr>
         <td colspan="6">
         <p align="center">
         <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

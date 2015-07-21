@@ -1,0 +1,34 @@
+<div class="header">
+  <div><h4><font class="header_single_content"> CROP YOUR PROFILE PICTURE</font></h4></div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+    $('#cropbox').Jcrop({
+        onChange: update_crop,
+        onSelect: update_crop,
+        setSelect: [0,0,400,400],
+        aspectRatio: 1
+    });
+  });
+
+  function update_crop(coords){
+      $("#crop_x").val(coords.x);
+      $("#crop_y").val(coords.y);
+      $("#crop_w").val(coords.w);
+      $("#crop_h").val(coords.h);
+
+  }
+</script>
+</br></br></br>
+
+<center><%= image_tag @user.profile_picture_url(:large),:id => "cropbox",class: ['cropbox'] %>
+</br>
+  <%= form_for @user do |f| %>
+      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+          <%= f.text_field attribute, :id => attribute ,class: [attribute]%>
+      <% end %>
+    <p><%= f.submit "Crop" %></p>
+  <% end %>
+
+</center>

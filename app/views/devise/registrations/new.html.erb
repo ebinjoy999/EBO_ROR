@@ -1,13 +1,13 @@
 <div  class="header"><h4>
-<font class = 'header_single_element' >SIGN UP FORM</font>
+<font class = 'header_single_element' >SIGN UPuucd   FORM</font>
 </h4></div> 
 
 <center>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:multipart => true}) do |f| %>
+</center>
 </br>
 
-<table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2"
+<table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2">
 
  <tr>
   <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
@@ -112,6 +112,9 @@
 
  <td  width="41%"><b><font class="form_element">Total Exp</font></b></td>
   <td><input type="text" class="total_experience"  readonly></td>
+
+   <td  width="41%"><b><font class="form_element">Upload your photo</font></b></td>
+   <td width="57%"><%= f.file_field :profile_picture %></td>
  </tr>
 
 <tr></tr>
@@ -126,8 +129,5 @@
  </tr>
  
 </table>
-
 <% end %>
-
-<!-- 
 <%= render "devise/shared/links" %>

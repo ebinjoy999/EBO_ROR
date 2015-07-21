@@ -5,7 +5,6 @@ class CreateDesignations < ActiveRecord::Migration
     create_table :designations do |t|
 
       t.string :designation_name
-
       t.timestamps null: false
     end
   end

@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  form_deactivatre_reason1: "No longer an employee with us"
+  form_deactivatre_reason2: "Long medical leave"
+  form_deactivatre_reason3: "Absconding"

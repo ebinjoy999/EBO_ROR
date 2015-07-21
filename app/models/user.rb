@@ -1,10 +1,19 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-	belongs_to :designation
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  mount_uploader :profile_picture, ProfilePictureUploader
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  # after_update :reprocess_profile_picture, :if => :cropping?
+  #
+  # def cropping?
+  #
+  # end
+  #
+  # def reprocess_profile_picture
+  #
+  # end
+  belongs_to :designation
   belongs_to :role
   validates :first_name, :last_name,  presence:true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   validates :user_ID, :emloyee_ID, :doj,:dob, presence:true
@@ -34,9 +43,4 @@ class User < ActiveRecord::Base
       end
     end
    end
-
-   
-
-
-
 end			

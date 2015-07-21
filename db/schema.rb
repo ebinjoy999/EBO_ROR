@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716080803) do
+ActiveRecord::Schema.define(version: 20150719163000) do
 
   create_table "designations", force: :cascade do |t|
     t.string   "designation_name", limit: 255
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150716080803) do
     t.string   "last_sign_in_ip",        limit: 255
     t.integer  "role_id",                limit: 4
     t.float    "previous_experience",    limit: 24
+    t.string   "profile_picture",        limit: 255
   end
 
   add_index "users", ["designation_id"], name: "index_users_on_designation_id", using: :btree

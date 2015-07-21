@@ -1,13 +1,16 @@
-<body  class="body1" >
-
-
-  <div class="header">
+ <div class="header">
    <div><h4> <%= link_to 'LIST USERS', admin_users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
     <font class="shades"><%=@user.first_name+" "+@user.last_name%>'s Profile</font></h4></div>
   </div>
  <br><br>
 
+
+ <center>  <%= image_tag(@user.profile_picture.url, height: '220', width: '190')%></center>
+
 <table align="center" class="table_colour_small_font"  border="1" width="500">
+
+
+
   <tr>
     <td> <strong>First name:</strong> </td>
     <td> <%= @user.first_name %></td>
@@ -57,7 +60,7 @@
   <td><strong>Designation ID:</strong></td>   
   <td><%= @user.designation.designation_name %></td>
 </td>
-<tr>
+</tr>
   <td><strong>Role:</strong></td>   
   <td><%= @user.role.name %></td>
 </td>
@@ -116,10 +119,10 @@
   </table>
 </br>
 
-
 <footer>
 <font color="white" align="right">
- <b><i> <p >Created by: EJ</p>
+ <b><i> <p >Created by: EJ</p> </i></b>
+</font>
 </footer>
 
 

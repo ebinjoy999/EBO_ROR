@@ -1,174 +1,153 @@
  <div class="header">
  <div><h4>
    <%= link_to 'LIST USERS', admin_users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
-
    <font class="shades">USER REGISTRATION FORM</font>
-   </h4></div>
+ </h4></div>
  </div>
 
-
-
-<!--<%= image_tag("bg.jpg", :alt => "rss feed") %>-->
+ <!--<%= image_tag("bg.jpg", :alt => "rss feed") %>-->
 <!-- <input type="Text" id="demo1" maxlength="25" size="25"/>
 <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("demo1")' %> -->
 
 <br>
-<%= form_for [:admin, @user]  do |f| %>
+ <%= form_for [:admin, @user]  do |f| %>
+     <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
+      <tr>
+        <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
+        <td colspan='2'><font class="validation_errror"><%= @user.errors[:last_name].join(" or ").capitalize %></font></td>
+      </tr>
 
-<table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
-<tr>
- <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
- <td colspan='2'><font class="validation_errror"><%= @user.errors[:last_name].join(" or ").capitalize %></font></td> 
-</tr>
+      <tr>
+        <td><b><font class="form_element">First Name</font></b></td>
+        <td><%= f.text_field :first_name, class: ['textbox5_mandatory'] %> </td>
+        <td ><b><font class="form_element">Middle Name</font></b></td>
+        <td ><%= f.text_field :middle_name, class: ['textbox5']  %></td>
+        <td ><b><font class="form_element">Last Name</font></b></td>
+        <td ><%= f.text_field :last_name, class: ['textbox5_mandatory']  %></td>
+      </tr>
 
-<tr>
-  <td ><b><font class="form_element">First Name</font></b></td>
-  <td >  <%= f.text_field :first_name, class: ['textbox5_mandatory'] %> </td>
-  <td ><b><font class="form_element">Middle Name</font></b></td>
-  <td ><%= f.text_field :middle_name, class: ['textbox5']  %></td>
-  <td ><b><font class="form_element">Last Name</font></b></td>
-  <td ><%= f.text_field :last_name, class: ['textbox5_mandatory']  %></td>
-</tr>
+      <tr>
+        <td colspan='2'><font class="validation_errror"><%= @user.errors[:user_ID].join(" or ").capitalize %></font></td>
+        <td colspan='2'><font class="validation_errror"><%= @user.errors[:password].join(" or ").capitalize %></font></td>
+        <td colspan='2'><font class="validation_errror"><%= @user.errors[:password_confirmation].join(" or ").capitalize %></font></td>
+      </tr>
 
-<tr>
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:user_ID].join(" or ").capitalize %></font></td> 
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:password].join(" or ").capitalize %></font></td> 
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:password_confirmation].join(" or ").capitalize %></font></td> 
-</tr>
+       <tr>
+        <td ><b><font class="form_element">User ID</font></b></td>
+        <td ><%= f.text_field :user_ID, class: ['textbox5_mandatory']  %></td>
+        <td><b><font class="form_element">Password</font></b></td>
+        <td ><%= f.password_field :password, class: ['textbox5_mandatory']  %></td>
+        <td> <b><font class="form_element">Confirm Password</font></b></td>
+        <td ><%= f.password_field :password_confirmation, class: ['textbox5_mandatory']  %>
+        </td>
+       </tr>
 
-        </tr>
-<tr>
-   <td ><b><font class="form_element">User ID</font></b></td>
-   <td ><%= f.text_field :user_ID, class: ['textbox5_mandatory']  %></td>
-   <td><b><font class="form_element">Password</font></b></td>
-   <td ><%= f.password_field :password, class: ['textbox5_mandatory']  %></td>
-   <td> <b><font class="form_element">Confirm Password</font></b></td>
-   <td ><%= f.password_field :password_confirmation, class: ['textbox5_mandatory']  %>
-   </td>
-</tr>
-
-<tr>
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:email].join(" or ").capitalize %></font></td> 
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:password].join(" or ").capitalize %></font></td> 
-  </font></td> 
-</tr>
+       <tr>
+         <td colspan='2'><font class="validation_errror"><%= @user.errors[:email].join(" or ").capitalize %></font></td>
+         <td colspan='2'><font class="validation_errror"><%= @user.errors[:password].join(" or ").capitalize %></font></td>
+         </font></td>
+       </tr>
     
-<tr>
-  <td><b><font class="form_element">Email ID</font></b></td>
-  <td ><%= f.text_field :email, class: ['textbox5']  %></td>
-  <td><b><font class="form_element">Employee ID</font></b></td>
-  <td ><%= f.text_field :emloyee_ID, class: ['textbox5_mandatory']  %></td>
-  <td><b><font class="form_element">Role</font></b></td>
-  <td width="57%"><%= f.select(:role_id, options_for_select([['Adminstrator',1], ['User',2]],)) %></td>
-</tr>
+       <tr>
+         <td><b><font class="form_element">Email ID</font></b></td>
+         <td ><%= f.text_field :email, class: ['textbox5']  %></td>
+         <td><b><font class="form_element">Employee ID</font></b></td>
+         <td ><%= f.text_field :emloyee_ID, class: ['textbox5_mandatory']  %></td>
+         <td><b><font class="form_element">Role</font></b></td>
+         <td width="57%"><%= f.select(:role_id, options_for_select([['Adminstrator',1], ['User',2]],)) %></td>
+       </tr>
 
-<tr>
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:dob].join(" or ").capitalize %></font></td> 
-  </font></td> 
-</tr>
+       <tr>
+         <td colspan='2'><font class="validation_errror"><%= @user.errors[:dob].join(" or ").capitalize %></font></td>
+         </font></td>
+       </tr>
 
-<tr>
- <td><b><font class="form_element">DOB</font></b></td>
- <td > <%= f.text_field :dob, class: ['textbox5_mandatory'],:id => 'relative_date_filter'  %>
- <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_filter")' %>
- </td>
- <td ><b><font class="form_element">Sex</font></b></td>
- <td > <%= f.select(:gender, options_for_select([['Male'], ['Female']])) %></td>
- <td ><b><font class="form_element">Time zone</font></b></td>
- <td ><%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
- </td>										
-</tr>
+       <tr>
+         <td><b><font class="form_element">DOB</font></b></td>
+         <td > <%= f.text_field :dob, class: ['textbox5_mandatory'],:id => 'relative_date_filter'  %>
+           <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_filter")' %>
+         </td>
+         <td ><b><font class="form_element">Sex</font></b></td>
+         <td > <%= f.select(:gender, options_for_select([['Male'], ['Female']])) %></td>
+         <td ><b><font class="form_element">Time zone</font></b></td>
+         <td ><%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %>
+         </td>
+       </tr>
 
-<tr>
-  <td colspan="2"></td>
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:doj].join(" or ").capitalize %></font></td> 
-  </font></td> 
-</tr>
+       <tr>
+         <td colspan="2"></td>
+         <td colspan='2'><font class="validation_errror"><%= @user.errors[:doj].join(" or ").capitalize %></font></td>
+         </font></td>
+       </tr>
  
+       <tr>
+         <td><b><font class="form_element">Designation</font></b></td>
+         <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
+         <td ><b><font class="form_element">DOJ</font></b></td>
+         <td ><%= f.text_field :doj, class: ['textbox5_mandatory doj'], :id => 'relative_date_doj'  %>
+         <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_doj")' %></td>
+         <td><b><font class="form_element">Education</font></b></td>
+         <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
+       </tr>
 
- <tr >
-   <td><b><font class="form_element">Designation</font></b></td>
-   <td width="57%"><%= f.select(:designation_id, options_for_select([['Trainee',1], ['Trainer',2], ['Analyst', 3],['Team Lead', 4],['Manager', 5]],)) %></td>
-   <td ><b><font class="form_element">DOJ</font></b></td>
-   <td ><%= f.text_field :doj, class: ['textbox5_mandatory doj'], :id => 'relative_date_doj'  %>
- <%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("relative_date_doj")' %></td>
-   <td><b><font class="form_element">Education</font></b></td>
-   <td width="57%"><%= f.text_area :educational_detail, class: ['textbox5']  %></td>
+       <tr>
+         <td colspan="2">
+         <td colspan='2'><font class="validation_errror"><%= @user.errors[:previous_experience].join(" or ").capitalize %></font></td>
+         </font></td>
+       </tr>
 
-  </tr>
-
-
-
-
-
-
-
-<tr>
-  <td colspan="2">
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:previous_experience].join(" or ").capitalize %></font></td> 
-  </font></td> 
- </tr>
-
- <tr>
-  <td  width="41%"><b><font class="form_element">Comments</font></b></td>
-  <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
-  <td  width="41%"><b><font class="form_element">Previous Exp (Year)</font></b></td>
-  <td width="57%"><%= f.text_field :previous_experience, class: ['previous_experience textbox5_mandatory'] %></td>
-  <td  width="41%"><b><font class="form_element">Total Exp</font></b></td>
-  <td><input type="text" class="total_experience"  readonly></td>
- </tr>
+       <tr>
+         <td  width="41%"><b><font class="form_element">Comments</font></b></td>
+         <td width="57%"><%= f.text_area :comments, class: ['textbox5']  %></td>
+         <td  width="41%"><b><font class="form_element">Previous Exp (Year)</font></b></td>
+         <td width="57%"><%= f.text_field :previous_experience, class: ['previous_experience textbox5_mandatory'] %></td>
+         <td  width="41%"><b><font class="form_element">Total Exp</font></b></td>
+         <td><input type="text" class="total_experience"  readonly></td>
+       </tr>
 
 
-<tr>
-  <td  valign="top" colspan="2" >
-   <label class="i-checks"> <%= f.check_box :lock %> <i></i> <b><font  class="form_element">Is Locked</font></b></label>
-   </td>
-  <td class="hide_when_not_locked" ><b><font class="form_element">Deactivated on</font></b></td>
-   <td class = "hide_when_not_locked"><%= f.date_field :deactive_date, class: ['textbox5']  %></td>
- </tr>
+       <tr>
+         <td  valign="top" colspan="2" >
+          <label class="i-checks"> <%= f.check_box :lock %> <i></i> <b><font  class="form_element">Is Locked</font></b></label>
+         </td>
+         <td class="hide_when_not_locked" ><b><font class="form_element">Deactivated on</font></b></td>
+         <td class = "hide_when_not_locked"><%= f.date_field :deactive_date, class: ['textbox5']  %></td>
+       </tr>
 
+       <tr>
+         <td colspan="2"></td>
+         <td colspan='2'><font class="validation_errror"><%= @user.errors[:work_phone].join(" or ").capitalize %></font></td>
+         </font></td>
+       </tr>
 
+       <tr >
+         <td><b><font class="form_element">Reason for deactivation</font></b></td>
+         <td width="57%">
+          <%= f.select(:deactive_reason, options_for_select([[t(:form_deactivatre_reason1)], [t(:form_deactivatre_reason2)], [t(:form_deactivatre_reason3)]]))  %></td>
+         <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
+         <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
+         <td  width="41%"><b><font class="form_element">Upload your photo</font></b></td>
+         <td width="57%"><%= f.file_field :profile_picture %></td>
+        </tr>
 
+       <tr></tr>
 
+       <tr>
+         <td colspan="6">
+         <p align="center">
+         <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <a href=<%=root_path%>>
+         <input type="button" value="Cancel" class="submit_button" />
+         </a>
+         </td>
+       </tr>
 
+ </table>
 
+     <footer>
+      <font color="white" align="right">
+      <b><i> <p >Created by: @@@@@@ </p> </i></b>
+      </font>
+     </footer>
 
- <tr>
-  <td colspan="2"></td>
-  <td colspan='2'><font class="validation_errror"><%= @user.errors[:work_phone].join(" or ").capitalize %></font></td> 
-  </font></td> 
- </tr>
- 
-
- <tr >
-  <td><b><font class="form_element">Reason for deactivation</font></b></td>
-  <td width="57%">
-  <%= f.select(:deactive_reason, options_for_select([['No longer an employee with us'], ['Long medical leave'], ['Absconding']]))  %></td>
-  <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
-  <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
-</tr>
-
-<tr></tr>
-
-<tr>
-  <td colspan="6">
-  <p align="center">
-  <input type="submit" value="  Submit" name="B4" class="submit_button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href=<%=root_path%>>
-  <input type="button" value="Cancel" class="submit_button" />
-  </a>
-  </td>
-</tr>
-
-</table>
-
-
-
-<footer>
-<font color="white" align="right">
- <b><i> <p >Created by: @@@@@@ </p>
-</footer>
-
-
-
-<% end %>
+ <% end %>

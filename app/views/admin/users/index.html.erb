@@ -1,24 +1,22 @@
-<body  class="body1" >
-
-  <div class="header">
+ <div class="header">
    <div><h4><!--<%= link_to 'NEW USER', new_admin_user_path, class: ['header_single_element'] %> -->
-    <font class="header_single_content">    REGISTERED USERS LIST</font></h4></div>
-  </div>
+     <font class="header_single_content">    REGISTERED USERS LIST</font></h4>
+   </div>
+ </div>
  
- <h4><b><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete, class: ['v_e_link'] %> <span></span></a></li> 
-  <%= link_to'ADD NEW USER', new_admin_user_path, class: ['v_e_link'], method: :get %> <span></span></a></b></u>
-
+ <h4>
+   <b><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete, class: ['v_e_link'] %> <span></span>
+   <%= link_to'ADD NEW USER', new_admin_user_path, class: ['v_e_link'], method: :get %> <span></span></b></u>
+ </h4>
 
 <center>
-<p><b><i><font size="6" face="Georgia, Arial" color="teal">Welcome <%= current_user.first_name%> <font color="indigo">(<%= current_user.role.name%>)</font></font></p></i>
+<p><b><i><font size = "5" face="Georgia, Arial" color="teal">Welcome <%= current_user.first_name%>
+  <font color="indigo">(<%= current_user.role.name%>)</font></font></i></b></p>
 </center>
-</br>
 
-
-<center><font color="red"><%=flash[:error]%></font></center>
-
-</br>
-<table align="center" class="table_colour_small_font"  border="1">
+ <center><font color="red"><%=flash[:error]%></font></center>
+ </br>
+ <table align="center" class="table_colour_small_font"  border="1">
   <tr>
     <td><h4>Name</h4></td>
     <td><h4>UID</h4></td>
@@ -26,17 +24,13 @@
     <td><h4>Employee ID</h4></td>
     <td><h4>DOB</h4></td>
     <td><h4>Gender</h4></td>
-<!--     <td><h4>Time-zone</h4></td> -->
     <td><h4>DES. ID</h4></td>   
     <td><h4>DOJ</h4></td>
     <td><h4>Role</h4></td>
     <td><h4>Prev. Exp.</h4></td>
-  <!--   <td><h4>Commands</h4></td> -->
     <td><h4>Lock</h4></td>
     <td><h4>Active</h4></td>
     <td><h4>Deactive</h4></td>
-   <!--  <td><h4>Work phone</h4></td> -->
-
   </tr>
  
   <% @users.each do |user| %>
@@ -59,20 +53,17 @@
               method: :delete,
               data: { confirm: 'Are you sure to delete this entry?' } %> </td>
       <td><%= link_to 'VIEW', admin_user_path(user), class: ['v_e_link'] %> </td>
-  
-
-    </tr>
-
-       
-
-  <% end %>
+  </tr>
+<% end %>
 </table>
 
 
 <footer>
 <font color="white" align="right">
- <b><i> <p >Created by: EJ</p>
+ <b><i> <p >Created by: EJ</p></i></b>
+</font>
 </footer>
+
 
 
 
