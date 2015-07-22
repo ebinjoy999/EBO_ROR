@@ -12,6 +12,11 @@ class Admin::UsersController < ApplicationController
 	 @user = User.new
   end
 
+  def crop
+    # @user.profile_picture = process :crop
+    # @user.save
+  end
+
   def create
    @user =User.new(user_params)
    if @user.save
@@ -28,6 +33,8 @@ class Admin::UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
    @tot_exp = @user.calculate_total_experience
+   @calculate_lock_status = @user.calculate_lock_status
+   @calculate_active_status = @user.calculate_active_status
   end
 
   def edit
@@ -37,11 +44,12 @@ class Admin::UsersController < ApplicationController
   def update
 	 @user = User.find(params[:id])
    # resource.update_without_password(params)
-	 if @user.update(params.require(:user).permit(:previous_experience, :role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone))
-		redirect_to root_path
+   if @user.update(user_params)
+     @user.profile_picture.recreate_versions!
+     redirect_to root_path
 	 else
      render :edit
-   end	
+   end
   end
   
   def destroy
@@ -53,8 +61,6 @@ class Admin::UsersController < ApplicationController
 private 
  def user_params
   # @designation_array = Designation.all.map { |d| [d.designation_name, d.id]  }
-  params.require(:user).permit(:profile_picture, :previous_experience, :role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone)
+  params.require(:user).permit(:profile_picture, :previous_experience, :role_id,:designation_id,:first_name, :middle_name, :last_name, :user_ID, :password, :password_confirmation, :email, :emloyee_ID, :dob, :gender, :time_zone, :doj, :educational_detail, :comments, :lock, :active, :deactive_date, :deactive_reason, :work_phone, :crop_x, :crop_y, :crop_w, :crop_h)
  end
 end
-
-

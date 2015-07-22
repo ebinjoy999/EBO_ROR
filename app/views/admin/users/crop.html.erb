@@ -22,13 +22,17 @@
 </script>
 </br></br></br>
 
-<center><%= image_tag @user.profile_picture_url(:large),:id => "cropbox",class: ['cropbox'] %>
+<center><%= image_tag @user.profile_picture_url,:id => "cropbox",class: ['cropbox'] %>
 </br>
-  <%= form_for @user do |f| %>
-      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-          <%= f.text_field attribute, :id => attribute ,class: [attribute]%>
+  <%= form_for [:admin, @user] do |f| %>
+
+      <% %w[x y  w h].each do |attribute| %>
+         <%= f.text_field "crop_#{attribute}", id: "crop_#{attribute}"%>
       <% end %>
+   <div class="actions">
     <p><%= f.submit "Crop" %></p>
+   </div>
   <% end %>
 
+  <%= @user.first_name%>
 </center>

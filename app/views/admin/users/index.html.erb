@@ -10,7 +10,7 @@
  </h4>
 
 <center>
-<p><b><i><font size = "5" face="Georgia, Arial" color="teal">Welcome <%= current_user.first_name%>
+  <p><b><i><font size = "5" face="Georgia, Arial" color="teal">Welcome <%= current_user.first_name%>
   <font color="indigo">(<%= current_user.role.name%>)</font></font></i></b></p>
 </center>
 
@@ -41,11 +41,11 @@
       <td><%= user.emloyee_ID %></td>
       <td><%= user.dob %></td>
       <td><%= user.gender %></td>
-      <td><%= @designation_array[user.designation_id-1        ] %></td>
+      <td><%= @designation_array[user.designation_id-1] %></td>
       <td><%= user.doj %></td>  
       <td><%=  user.role.name  %></td>  
       <td><%=  user.previous_experience %></td> 
-      <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>  
+      <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>
       <td><%= if(user.active=="1") then 'True' ; else  'False'; end %></td> 
       <td><%= user.deactive_date %></td> 
       <td><%= link_to 'EDIT', edit_admin_user_path(user), class: ['v_e_link'], method: :get %> </td>
@@ -63,8 +63,3 @@
  <b><i> <p >Created by: EJ</p></i></b>
 </font>
 </footer>
-
-
-
-
-<p></p>

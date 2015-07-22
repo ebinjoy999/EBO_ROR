@@ -34,96 +34,98 @@
    <tr>
     <td> <strong>Email:</strong> </td>
     <td> <%= @user.email %></td>
-  </tr>
+   </tr>
 
-     <tr>
+   <tr>
     <td> <strong>Employee ID:</strong> </td>
     <td> <%= @user.emloyee_ID %></td>
-  </tr>
+   </tr>
 
-     <tr>
+   <tr>
     <td> <strong>DOB:</strong> </td>
     <td> <%=@user.dob %></td>
+   </tr>
+
+   <tr>
+    <td><strong>Gender:</strong></td>
+    <td><%= @user.gender %></td>
+   </tr>
+
+   <tr>
+     <td><strong>Time zone:</strong></td>
+     <td><%= @user.time_zone %></td>
+   </tr>
+
+   <tr>
+     <td><strong>Designation ID:</strong></td>
+     <td><%= @user.designation.designation_name %></td>
+     </td>
+   </tr>
+
+     <td><strong>Role:</strong></td>
+     <td><%= @user.role.name %></td>
+
+   <tr>
+     <td><strong> Date Of Joining:</strong></td>
+     <td><%= @user.doj %></td>
+   </tr>
+
+   <tr>
+     <td><strong> Previous Experience (years):</strong></td>
+     <td><%=@user.previous_experience%></td>
+   </tr>
+
+   <tr>
+     <td><strong> Total Experience (years):</strong></td>
+     <td><%= @tot_exp%></td>
+   </tr>
+
+   <tr>
+     <td><strong>Education:</strong></td>
+     <td><%= @user.educational_detail %></td>
+   </tr>
+
+  <tr>
+    <td><strong>Comments:</strong></td>
+    <td><%= @user.comments %></td>
   </tr>
 
   <tr>
-  <td><strong>Gender:</strong></td>
-  <td><%= @user.gender %></td>
-</tr>
+    <td><strong>Lock Status:</strong></td>
+    <td><%= @calculate_lock_status %></td>
+  </tr>
 
-<tr>
-  <td><strong>Time zone:</strong></td>
-  <td><%= @user.time_zone %></td>
-</tr>
+  <tr>
+    <td><strong>Active  Status:</strong></td>
+    <td><%= @calculate_active_status %></td>
+  </tr>
 
-<tr>
-  <td><strong>Designation ID:</strong></td>   
-  <td><%= @user.designation.designation_name %></td>
-</td>
-</tr>
-  <td><strong>Role:</strong></td>   
-  <td><%= @user.role.name %></td>
-</td>
- 
- <tr>
-  <td><strong> Date Of Joining:</strong></td>
-  <td><%= @user.doj %></td>
-</tr>
+  <tr>
+    <td><strong>Deactive  Date:</strong></td>
+    <td><%= @user.deactive_date %></td>
+  </tr>
 
- <tr>
-  <td><strong> Previous Experience (years):</strong></td>
-  <td><%=@user.previous_experience%></td>
-</tr>
+  <tr>
+    <td><strong>Deactive Reason:</strong></td>
+    <td><%= @user.deactive_reason %></td>
+  </tr>
 
- <tr>
-  <td><strong> Total Experience (years):</strong></td>
-  <td><%= @tot_exp%></td>
-</tr>
+  <tr>
+    <td><strong>Work phone:</strong></td>
+    <td><%= @user.work_phone %></td>
+  </tr>
 
-<tr>
-  <td><strong>Education:</strong></td>
-  <td><%= @user.educational_detail %></td>
-</tr>
-<tr>
-  <td><strong>Comments:</strong></td>
-  <td><%= @user.comments %></td>
-</tr>
-<tr>
-  <td><strong>Lock Status:</strong></td>
-  <td><%= if(@user.lock=="1") then 'True' ; else  'False' ;end %></td>
-</tr>
-<tr>
-  <td><strong>Aactive  Status:</strong></td>
-  <td><%= if(@user.active=="1") then 'True' ; else  'False'; end %></td>
-</tr>
-<tr>
-  <td><strong>Deactive  Date:</strong></td>
-  <td><%= @user.deactive_date %></td>
-</tr>
-<tr>
-  <td><strong>Deactive Reason:</strong></td>
-  <td><%= @user.deactive_reason %></td>
-</tr>
-<tr>
-  <td><strong>Work phone:</strong></td>
-  <td><%= @user.work_phone %></td>
-</tr>
-<tr><td colspan="2">
+  <tr><td colspan="2">
 
-<form action=<%=root_path%>>
-    <input type="submit" value="  Back " class="submit_button">
-</form>
+    <form action=<%=root_path%>>
+      <input type="submit" value="  Back " class="submit_button">
+    </form></td>
+  </tr>
 
-</td>
-</tr>
-  </table>
+</table>
 </br>
-
-<footer>
+ <footer>
 <font color="white" align="right">
  <b><i> <p >Created by: EJ</p> </i></b>
 </font>
 </footer>
-
-
-
