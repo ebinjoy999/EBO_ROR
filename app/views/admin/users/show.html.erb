@@ -5,11 +5,15 @@
  <br><br>
 
 
- <center>  <%= image_tag(@user.profile_picture.url, height: '220', width: '190')%></center>
+ <
 
-<table align="center" class="table_colour_small_font"  border="1" width="500">
+<table align="center" class="table_colour_small_font"  border="1" width="500" >
 
-
+   <tr>
+     <td colspan="2" style="padding: 20px;">
+       <center>  <%= image_tag(@user.profile_picture.url(:thumb), height: '120', width: '100')%></center>
+     </td>
+   </tr>
 
   <tr>
     <td> <strong>First name:</strong> </td>

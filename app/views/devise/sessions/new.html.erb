@@ -1,6 +1,11 @@
 <div class="header"><h4>
  <font class = 'header_single_element' >LOG IN FORM</font>
+    </h4>
  </div>
+
+<% flash.each do |name, msg| %>
+    <center><li><%= msg %></li></center>
+    <% end %>
 
  <center>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

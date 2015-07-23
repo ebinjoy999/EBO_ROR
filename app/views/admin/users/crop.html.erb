@@ -22,7 +22,7 @@
 </script>
 </br></br></br>
 
-<center><%= image_tag @user.profile_picture_url,:id => "cropbox",class: ['cropbox'] %>
+<center><%= image_tag @user.profile_picture_url(:large),:id => "cropbox",class: ['cropbox']%>
 </br>
   <%= form_for [:admin, @user] do |f| %>
 

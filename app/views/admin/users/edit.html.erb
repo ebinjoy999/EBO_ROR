@@ -113,6 +113,21 @@
         <td width="57%"><%= f.text_field :work_phone, class: ['textbox5_mandatory']  %></td>
       </tr>
 
+      <tr>
+        <td colspan="2">
+          <label class="i-checks"> <%= check_box_tag :remove_profile_picture %> <i></i> <b><font  class="form_element">Remove Picture</font></b></label>
+        </td>
+
+        <div >
+          <td class = "hide_when_no_profile_picture_need">
+            <%= f.file_field :profile_picture,:id => "profile_picture",class: ['profile_picture'], :onchange => "readURL(this)" %>
+          </td>
+          <td class = "hide_when_no_profile_picture_need">
+            <%= image_tag (@user.profile_picture_url(:thumb)),:width => 100, :height => 100, :id => "image_visual_show",class: ['image_visual_show'] %>
+          </td>
+        </div>
+      </tr>
+
       <tr></tr>
 
       <tr>
