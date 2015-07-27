@@ -1,17 +1,15 @@
- <div class="header">
-   <div><h4> <%= link_to 'LIST USERS', admin_users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
-    <font class="shades"><%=@user.first_name+" "+@user.last_name%>'s Profile</font></h4></div>
-  </div>
- <br><br>
-
-
- <
-
+<%= render 'user_home_panel_header'%>
+</br></br>
 <table align="center" class="table_colour_small_font"  border="1" width="500" >
 
    <tr>
      <td colspan="2" style="padding: 20px;">
-       <center>  <%= image_tag(@user.profile_picture.url(:thumb), height: '120', width: '100')%></center>
+       <% if @user.profile_picture_url %>
+           <%= image_tag @user.profile_picture_url(:thumb,:width => 100, :height => 120),:id => "cropbox",class: ['cropbox']%>
+           </td>
+       <% else %>
+           <%= image_tag ("default_picture"), :width => "100", :height => "100"%>
+       <% end %>
      </td>
    </tr>
 
@@ -128,8 +126,5 @@
 
 </table>
 </br>
- <footer>
-<font color="white" align="right">
- <b><i> <p >Created by: EJ</p> </i></b>
-</font>
-</footer>
+</br></br>
+<%= render 'user_home_panel_footer'%>

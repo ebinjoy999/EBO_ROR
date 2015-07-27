@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   #validates :lname, presence:true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
   validates :work_phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Wrong format" }
 
+  scope :dob_before, ->(time) { where('dob<?', time) }
+
   def calculate_total_experience
     if(previous_experience!=nil)
       #hh = Date.new(doj)
