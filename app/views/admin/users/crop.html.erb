@@ -1,7 +1,5 @@
-<div class="header">
-  <div><h4><font class="header_single_content"> CROP YOUR PROFILE PICTURE</font></h4></div>
-</div>
-
+<%= render 'user_home_panel_header'%>
+</br></br>
 <script type="text/javascript" charset="utf-8">
   $(function(){
     $('#cropbox').Jcrop({
@@ -36,3 +34,5 @@
 
   <%= @user.first_name%>
 </center>
+</br></br>
+<%= render 'user_home_panel_footer'%>

@@ -1,11 +1,11 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource except: [:create]
   def index
-   @users = User.all
-   @designation_array = Designation.all.map { |d| d.designation_name  }
-   @user  = current_user
-   @user.active = true
-   @user.save
+    p @users = User.all
+    # @designation_array = Designation.all.map { |d| d.designation_name  }
+    @user  = current_user
+    @user.active = true
+    @user.save
   end
   
   def new
@@ -15,12 +15,13 @@ class Admin::UsersController < ApplicationController
   def create
    @user =User.new(user_params)
    if @user.save
-     if @user.profile_picture.blank?
+     # if @user.profile_picture.blank?
        redirect_to root_path
-     else
-       render :action => "crop"
-     end
    else
+     p @user.errors
+     #   render :action => "crop"
+     # end
+   # else
     render :new
    end
   end           
@@ -40,15 +41,15 @@ class Admin::UsersController < ApplicationController
 	 @user = User.find(params[:id])
    # resource.update_without_password(params)
    if @user.update(user_params)
-     if (params[:remove_profile_picture]=="1")
-       @user.remove_profile_picture!
-       @user.remove_profile_picture = true
-       @user.save
-       redirect_to root_path
-     else
-     @user.profile_picture.recreate_versions!
+     # if (params[:remove_profile_picture]=="1")
+     #   @user.remove_profile_picture!
+       # @user.remove_profile_picture = true
+     #   @user.save
+     #   redirect_to root_path
+     # else
+     # @user.profile_picture.recreate_versions!
      redirect_to root_path
-     end
+     # end
 	 else
      render :edit
    end

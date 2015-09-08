@@ -1,0 +1,33 @@
+<div id="page">
+  <header id="header">
+    <div id="header-inner">
+      <div id="logo">
+        <h1><%= link_to root_path do %>Home<span>page</span></h1>
+          <% end %>
+          </div>
+      <div id="top-nav">
+        <ul>
+          <!--<li><a href="#">About</a></li>-->
+          <!--<li><a href="#">Contact</a></li>-->
+          <li><%= link_to'ADD NEW USER', new_admin_user_path, class: ['v_e_link'], method: :get %></li>
+          <li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete, class: ['v_e_link'] %></li>
+          <li><aa><%= current_user.email%></aa></li>
+          <li><aaa><% if current_user.profile_picture_url %>
+                <%= image_tag current_user.profile_picture_url(:thumb),:width => 50, :height => 50,:id => "cropbox",class: ['cropbox']%>
+                </td>
+            <% else %>
+                <%= image_tag ("default_picture"), :width => "50", :height => "50"%>
+            <% end %></aaa></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </header>
+  <div class="feature">
+    <div class="feature-inner">
+      <h4 align="left">REGISTERED USERS LIST </h4>
+    </div>
+    <h5 align="right" class="inline">Welcome <%= current_user.first_name%>&nbsp;(<%= current_user.role.name%>)</h5>
+
+  </div>
+</div>

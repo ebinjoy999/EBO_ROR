@@ -1,24 +1,16 @@
- <div class="header">
- <div><h4>
-   <%= link_to 'LIST USERS', admin_users_path, class: ['header_single_element'] %>&nbsp;&nbsp;&nbsp;
-   <font class="shades">USER REGISTRATION FORM</font>
- </h4></div>
- </div>
-
- <!--<%= image_tag("bg.jpg", :alt => "rss feed") %>-->
-<!-- <input type="Text" id="demo1" maxlength="25" size="25"/>
-<%= image_tag 'cal.gif',:onclick => 'javascript:NewCssCal("demo1")' %> -->
-
-<br>
+<%= render 'user_home_panel_header'%>
+</br></br>
+<center>
+<div class="edit_form_width">
  <%= form_for [:admin, @user]  do |f| %>
-     <table class="table_colour" align="center"  width="500" border="0" cellspacing="5" cellpadding="2" >
+     <table class="table_colour_small_font_edit_form">
       <tr>
         <td colspan='2'><font class="validation_errror"><%= @user.errors[:first_name].join(" or ").capitalize %></font></td><td colspan='2'></td>
         <td colspan='2'><font class="validation_errror"><%= @user.errors[:last_name].join(" or ").capitalize %></font></td>
       </tr>
 
       <tr>
-        <td><b><font class="form_element">First Name</font></b></td>
+        <td><b><font class="form_element">First Nsame</font></b></td>
         <td><%= f.text_field :first_name, class: ['textbox5_mandatory'] %> </td>
         <td ><b><font class="form_element">Middle Name</font></b></td>
         <td ><%= f.text_field :middle_name, class: ['textbox5']  %></td>
@@ -121,7 +113,7 @@
        </tr>
 
        <tr >
-         <td><b><font class="form_element">Reason for deactivation</font></b></td>
+         <td><b><font class="form_element">Reason for deact.</font></b></td>
          <td width="57%">
           <%= f.select(:deactive_reason, options_for_select([[t(:form_deactivatre_reason1)], [t(:form_deactivatre_reason2)], [t(:form_deactivatre_reason3)]]))  %></td>
          <td  width="41%"><b><font class="form_element">Work Phone</font></b></td>
@@ -151,3 +143,6 @@
      </footer>
 
  <% end %>
+ </div>
+</br></br>
+<%= render 'user_home_panel_footer'%>

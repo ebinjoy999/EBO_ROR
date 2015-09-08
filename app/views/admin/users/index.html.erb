@@ -1,65 +1,51 @@
- <div class="header">
-   <div><h4><!--<%= link_to 'NEW USER', new_admin_user_path, class: ['header_single_element'] %> -->
-     <font class="header_single_content">    REGISTERED USERS LIST</font></h4>
-   </div>
- </div>
- 
- <h4>
-   <b><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete, class: ['v_e_link'] %> <span></span>
-   <%= link_to'ADD NEW USER', new_admin_user_path, class: ['v_e_link'], method: :get %> <span></span></b></u>
- </h4>
+<body>
 
-<center>
-  <p><b><i><font size = "5" face="Georgia, Arial" color="teal">Welcome <%= current_user.first_name%>
-  <font color="indigo">(<%= current_user.role.name%>)</font></font></i></b></p>
-</center>
+<%= render 'user_home_panel_header'%>
 
- <center><font color="red"><%=flash[:error]%></font></center>
- </br>
- <table align="center" class="table_colour_small_font"  border="1">
-  <tr>
-    <td><h4>Name</h4></td>
-    <td><h4>UID</h4></td>
-    <td><h4>Email</h4></td>
-    <td><h4>Employee ID</h4></td>
-    <td><h4>DOB</h4></td>
-    <td><h4>Gender</h4></td>
-    <td><h4>DES. ID</h4></td>   
-    <td><h4>DOJ</h4></td>
-    <td><h4>Role</h4></td>
-    <td><h4>Prev. Exp.</h4></td>
-    <td><h4>Lock</h4></td>
-    <td><h4>Active</h4></td>
-    <td><h4>Deactive</h4></td>
-  </tr>
- 
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.first_name + " " + user.middle_name + " " + user.last_name %></td>
-      <td><%= user.user_ID %></td>
-      <td><%= user.email %></td>
-      <td><%= user.emloyee_ID %></td>
-      <td><%= user.dob %></td>
-      <td><%= user.gender %></td>
-      <td><%= @designation_array[user.designation_id-1] %></td>
-      <td><%= user.doj %></td>  
-      <td><%=  user.role.name  %></td>  
-      <td><%=  user.previous_experience %></td> 
-      <td><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></td>
-      <td><%= if(user.active=="1") then 'True' ; else  'False'; end %></td> 
-      <td><%= user.deactive_date %></td> 
-      <td><%= link_to 'EDIT', edit_admin_user_path(user), class: ['v_e_link'], method: :get %> </td>
-      <td><%= link_to 'DESTROY', admin_user_path(user),  class: ['destroy_link'], 
-              method: :delete,
-              data: { confirm: 'Are you sure to delete this entry?' } %> </td>
-      <td><%= link_to 'VIEW', admin_user_path(user), class: ['v_e_link'] %> </td>
-  </tr>
-<% end %>
-</table>
+  </br></br>
+  <table align="center" class="table_colour_small_font"  border="1">
+    <tr style="height: 60px">
+      <td><h55><b>Profile Pic.</b></h55></td>
+      <td><h55><b>Name</b></h55></td>
+      <td><h55><b>UID</b></h55></td>
+      <td><h55><b>Email</b></h55></td>
+      <td><h55><b>Gender</b></h55></td>
+      <td><h55><b>DES. ID</b></h55></td>
+      <td><h55><b>DOJ</b></h55></td>
+      <td><h55><b>Role</b></h55></td>
+      <td><h55><b>Prev. Exp.</b></h55></td>
+      <td><h55><b>Lock</b></h55></td>
+      <td><h55><b>Active</b></h55></td>
+    </tr>
 
-
-<footer>
-<font color="white" align="right">
- <b><i> <p >Created by: EJ</p></i></b>
-</font>
-</footer>
+    <% @users.each do |user| %>
+        <tr>
+          <td style="padding: 5px">
+            <% if user.profile_picture_url %>
+                <%= image_tag user.profile_picture_url(:thumb),:width => 50, :height => 50,:id => "cropbox",class: ['cropbox']%>
+                </td>
+            <% else %>
+                <%= image_tag ("default_picture"), :width => "50", :height => "50"%>
+            <% end %>
+            <td><h6><b><%= user.first_name + " " + user.last_name %></b></h6></td>
+            <td><h6><b><%= user.user_ID %></b></h6></td>
+            <td><h6><b><%= user.email %></b></h6></td>
+            <td><h6><b><%= user.gender %></b></h6></td>
+            <td><h6><b><%= user.designation.designation_name %></b></h6></td>
+            <td><h6><b><%= user.doj %></b></h6></td>
+            <td><h6><b><%=  user.role.name  %></b></h6></td>
+            <td><h6><b><%=  user.previous_experience %></b></h6></td>
+            <td><h6><b><%= if(user.lock=="1") then 'True' ; else  'False' ;end %></b></h6></td>
+            <td><h6><b><%= if(user.active=="1") then 'True' ; else  'False'; end %></b></h6></td>
+            <td><h6><b><%= link_to 'EDIT', edit_admin_user_path(user), class: ['v_e_link'], method: :get %></b></h6></td>
+            <td><h6><b><%= link_to 'DESTROY', admin_user_path(user),  class: ['destroy_link'],
+                            method: :delete,
+                            data: { confirm: 'Are you sure to delete this entry?' } %> </b></h6></td>
+            <td><h6><b><%= link_to 'VIEW', admin_user_path(user), class: ['v_e_link'] %> </b></h6></td>
+            </tr>
+    <% end %>
+  </table>
+  </br></br>
+<%= render 'user_home_panel_footer'%>
+</div>
+</body>
